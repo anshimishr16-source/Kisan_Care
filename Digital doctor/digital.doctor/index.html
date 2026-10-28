@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KisanCare | A Digital Doctor for the Farmer and the Land</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="first.js" defer></script>
+</head>
+<body>
+
+<!-- LOGIN / SIGNUP -->
+<section id="authScreen" class="auth-screen">
+  <div class="auth-hero">
+    <div class="logo">🌱 KisanCare</div>
+    <span class="tag">SMART FARMING • HEALTHY SOIL</span>
+    <h1 data-en="A Digital Doctor for the Farmer and the Land"
+        data-hi="किसान और मिट्टी के लिए एक डिजिटल डॉक्टर">
+      A Digital Doctor for the Farmer and the Land
+    </h1>
+    <p data-en="Tell us your farm's problem. Get guidance to care for your crops and restore soil health."
+       data-hi="अपने खेत की समस्या बताएं। फसल की देखभाल और मिट्टी की सेहत सुधारने के लिए सलाह पाएं।">
+      Tell us your farm's problem. Get guidance to care for your crops and restore soil health.
+    </p>
+    <div class="hero-points">
+      <span>🌾 <span data-en="Crop care" data-hi="फसल की देखभाल">Crop care</span></span>
+      <span>🌍 <span data-en="Soil health" data-hi="मिट्टी की सेहत">Soil health</span></span>
+      <span>🌦️ <span data-en="Weather updates" data-hi="मौसम की जानकारी">Weather updates</span></span>
+    </div>
+  </div>
+
+  <div class="auth-box">
+    <div class="auth-top">
+      <h2 data-en="Welcome, Farmer!" data-hi="स्वागत है, किसान!">Welcome, Farmer!</h2>
+      <select id="language" aria-label="Language">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </div>
+
+    <div class="tabs">
+      <button id="loginTab" class="active" data-en="Login" data-hi="लॉग इन">Login</button>
+      <button id="signupTab" data-en="Sign up" data-hi="खाता बनाएं">Sign up</button>
+    </div>
+
+    <form id="authForm">
+      <label id="nameLabel" class="hidden" data-en="Full name" data-hi="पूरा नाम">Full name</label>
+      <input id="name" class="hidden" placeholder="Enter your name">
+
+      <label data-en="Email address" data-hi="ईमेल पता">Email address</label>
+      <input id="email" type="email" required placeholder="farmer@example.com">
+
+      <label data-en="Password" data-hi="पासवर्ड">Password</label>
+      <input id="password" type="password" required minlength="4"
+             placeholder="At least 4 characters">
+
+      <button class="btn full" id="authSubmit" type="submit"
+              data-en="Login" data-hi="लॉग इन">Login</button>
+      <p id="authMessage" class="message"></p>
+      <small data-en="Demo account only. Do not use your real password."
+             data-hi="यह डेमो खाता है। अपना असली पासवर्ड इस्तेमाल न करें।">
+        Demo account only. Do not use your real password.
+      </small>
+    </form>
+  </div>
+</section>
+
+<!-- MAIN WEBSITE -->
+<div id="app" class="hidden">
+  <aside class="sidebar" id="sidebar">
+    <div class="logo">🌱 KisanCare</div>
+    <div class="profile">👨‍🌾 <span id="userName">Farmer</span></div>
+
+    <button class="nav active" data-page="dashboard">🏡 <span data-en="Dashboard" data-hi="डैशबोर्ड">Dashboard</span></button>
+    <button class="nav" data-page="diagnosis">🩺 <span data-en="Crop Doctor" data-hi="फसल डॉक्टर">Crop Doctor</span></button>
+    <button class="nav" data-page="soil">🌍 <span data-en="Soil Health" data-hi="मिट्टी की सेहत">Soil Health</span></button>
+    <button class="nav" data-page="weather">🌦️ <span data-en="Weather" data-hi="मौसम">Weather</span></button>
+    <button class="nav" data-page="reports">📋 <span data-en="My Reports" data-hi="मेरी रिपोर्ट">My Reports</span></button>
+
+    <button id="logout" class="logout">↪ <span data-en="Logout" data-hi="लॉग आउट">Logout</span></button>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button id="menu" class="menu">☰</button>
+      <div>
+        <small data-en="YOUR FARM WORKSPACE" data-hi="आपके खेत का कार्यक्षेत्र">YOUR FARM WORKSPACE</small>
+        <h2 id="pageTitle" data-en="Dashboard" data-hi="डैशबोर्ड">Dashboard</h2>
+      </div>
+      <select id="language2" aria-label="Language">
+        <option value="en">English</option>
+        <option value="hi">हिन्दी</option>
+      </select>
+    </header>
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page">
+      <div class="banner">
+        <div>
+          <span class="tag" data-en="GROW BETTER, LIVE BETTER" data-hi="बेहतर खेती, बेहतर जीवन">GROW BETTER, LIVE BETTER</span>
+          <h1><span data-en="Hello" data-hi="नमस्ते">Hello</span>, <span id="welcomeName">Farmer</span>! 🌾</h1>
+          <p data-en="Tell us what's happening in your field. Let's take better care of your crops and soil."
+             data-hi="अपने खेत की समस्या बताएं। आइए, फसल और मिट्टी की बेहतर देखभाल करें।">
+            Tell us what's happening in your field. Let's take better care of your crops and soil.
+          </p>
+          <button class="btn" data-page="diagnosis" data-en="Check My Crop →" data-hi="फसल की जाँच करें →">Check My Crop →</button>
+        </div>
+        <div class="banner-art">🌱 🌾 🌻<br>🌿 🌾 🌱</div>
+      </div>
+
+      <h2 data-en="Your Farm Overview" data-hi="आपके खेत का सारांश">Your Farm Overview</h2>
+      <div class="stats">
+        <article class="card"><span>🩺</span><h3 id="cropCount">0</h3><p data-en="Crop Reports" data-hi="फसल रिपोर्ट">Crop Reports</p></article>
+        <article class="card"><span>🌍</span><h3 data-en="Soil Care" data-hi="मिट्टी की देखभाल">Soil Care</h3><p data-en="Monitor your soil" data-hi="मिट्टी की स्थिति देखें">Monitor your soil</p></article>
+        <article class="card"><span>🌦️</span><h3 data-en="Weather" data-hi="मौसम">Weather</h3><p data-en="Plan field activities" data-hi="खेत के काम की योजना बनाएं">Plan field activities</p></article>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <h2 data-en="Quick Actions" data-hi="त्वरित विकल्प">Quick Actions</h2>
+          <button class="quick" data-page="diagnosis">🌱 <span data-en="Describe a crop problem →" data-hi="फसल की समस्या बताएं →">Describe a crop problem →</span></button>
+          <button class="quick" data-page="soil">🌍 <span data-en="Check soil health →" data-hi="मिट्टी की स्थिति देखें →">Check soil health →</span></button>
+          <button class="quick" data-page="weather">☀️ <span data-en="Check local weather →" data-hi="स्थानीय मौसम देखें →">Check local weather →</span></button>
+          <button class="quick" data-page="reports">📋 <span data-en="View saved reports →" data-hi="सेव रिपोर्ट देखें →">View saved reports →</span></button>
+        </article>
+        <article class="card tip">
+          <span class="big">💡</span>
+          <h2 data-en="Smart Farming Tip" data-hi="स्मार्ट खेती की सलाह">Smart Farming Tip</h2>
+          <p data-en="Before using fertilisers or pesticides, verify the cause of the problem. A soil test and agricultural expert can help."
+             data-hi="खाद या कीटनाशक इस्तेमाल करने से पहले समस्या के कारण की पुष्टि करें। मिट्टी की जाँच और कृषि विशेषज्ञ मदद कर सकते हैं।">
+            Before using fertilisers or pesticides, verify the cause of the problem. A soil test and agricultural expert can help.
+          </p>
+        </article>
+      </div>
+
+      <article class="card">
+        <h2 data-en="Recent Reports" data-hi="हाल की रिपोर्ट">Recent Reports</h2>
+        <div id="recentReports"></div>
+      </article>
+    </section>
+
+    <!-- CROP DIAGNOSIS -->
+    <section id="diagnosis" class="page hidden">
+      <div class="intro">
+        <span class="tag" data-en="CROP CARE" data-hi="फसल की देखभाल">CROP CARE</span>
+        <h1 data-en="Tell Us Your Crop's Problem" data-hi="अपनी फसल की समस्या बताएं">Tell Us Your Crop's Problem</h1>
+        <p data-en="Describe the symptoms to receive preliminary guidance."
+           data-hi="लक्षण बताएं और शुरुआती सलाह पाएं।">Describe the symptoms to receive preliminary guidance.</p>
+      </div>
+
+      <form id="cropForm" class="card">
+        <h2 data-en="Crop Details" data-hi="फसल की जानकारी">Crop Details</h2>
+        <div class="fields">
+          <div><label data-en="Crop type *" data-hi="फसल का नाम *">Crop type *</label>
+            <select id="crop" required>
+              <option value="" data-en="Select crop" data-hi="फसल चुनें">Select crop</option>
+              <option value="Wheat" data-en="Wheat / गेहूँ" data-hi="गेहूँ / Wheat">Wheat / गेहूँ</option>
+              <option value="Rice" data-en="Rice / धान" data-hi="धान / Rice">Rice / धान</option>
+              <option value="Maize" data-en="Maize / मक्का" data-hi="मक्का / Maize">Maize / मक्का</option>
+              <option value="Tomato" data-en="Tomato / टमाटर" data-hi="टमाटर / Tomato">Tomato / टमाटर</option>
+              <option value="Potato" data-en="Potato / आलू" data-hi="आलू / Potato">Potato / आलू</option>
+              <option value="Cotton" data-en="Cotton / कपास" data-hi="कपास / Cotton">Cotton / कपास</option>
+              <option value="Mustard" data-en="Mustard / सरसों" data-hi="सरसों / Mustard">Mustard / सरसों</option>
+              <option value="Other" data-en="Other" data-hi="अन्य">Other</option>
+            </select>
+          </div>
+          <div><label data-en="Growth stage" data-hi="फसल की अवस्था">Growth stage</label>
+            <select id="stage">
+              <option data-en="Not specified" data-hi="नहीं बताया">Not specified</option>
+              <option data-en="Seedling" data-hi="अंकुर अवस्था">Seedling</option>
+              <option data-en="Vegetative growth" data-hi="पत्तियों की बढ़त">Vegetative growth</option>
+              <option data-en="Flowering" data-hi="फूल आने की अवस्था">Flowering</option>
+              <option data-en="Fruiting / grain filling" data-hi="फल / दाना बनने की अवस्था">Fruiting / grain filling</option>
+              <option data-en="Near harvest" data-hi="कटाई के करीब">Near harvest</option>
+            </select>
+          </div>
+          <div><label data-en="Village / District" data-hi="गाँव / ज़िला">Village / District</label><input id="location" placeholder="e.g. Lucknow"></div>
+          <div><label data-en="Land area" data-hi="खेत का क्षेत्रफल">Land area</label><input id="area" placeholder="e.g. 2 acres"></div>
+        </div>
+
+        <label data-en="Describe the problem *" data-hi="समस्या का वर्णन करें *">Describe the problem *</label>
+        <textarea id="problem" rows="4" required
+          data-en-placeholder="Yellow leaves, spots, insects, wilting, slow growth..."
+          data-hi-placeholder="पीली पत्तियाँ, धब्बे, कीट, मुरझाना, धीमी बढ़त..."></textarea>
+
+        <div class="voice-row">
+          <button type="button" id="voice" class="secondary">🎙️ <span data-en="Speak Problem" data-hi="बोलकर बताएं">Speak Problem</span></button>
+          <span id="voiceStatus"></span>
+        </div>
+
+        <label data-en="Upload crop photo (optional)" data-hi="फसल की फोटो जोड़ें (वैकल्पिक)">Upload crop photo (optional)</label>
+        <input id="photo" type="file" accept="image/*">
+        <div id="preview"></div>
+
+        <button class="btn" type="submit" data-en="Get Preliminary Guidance →" data-hi="शुरुआती सलाह पाएं →">Get Preliminary Guidance →</button>
+      </form>
+      <div id="cropResult" class="card hidden"></div>
+    </section>
+
+    <!-- SOIL -->
+    <section id="soil" class="page hidden">
+      <div class="intro">
+        <span class="tag" data-en="SOIL CARE" data-hi="मिट्टी की देखभाल">SOIL CARE</span>
+        <h1 data-en="Understand Your Soil" data-hi="अपनी मिट्टी को समझें">Understand Your Soil</h1>
+        <p data-en="Record visible conditions. A laboratory test is needed to confirm nutrient levels and pH."
+           data-hi="मिट्टी की दिखाई देने वाली स्थिति दर्ज करें। पोषक तत्वों और pH की पुष्टि के लिए लैब टेस्ट ज़रूरी है।">
+          Record visible conditions. A laboratory test is needed to confirm nutrient levels and pH.
+        </p>
+      </div>
+      <form id="soilForm" class="card">
+        <div class="fields">
+          <div><label data-en="Soil colour" data-hi="मिट्टी का रंग">Soil colour</label>
+            <select id="soilColor">
+              <option data-en="Not specified" data-hi="नहीं बताया">Not specified</option>
+              <option data-en="Dark brown / black" data-hi="गहरा भूरा / काला">Dark brown / black</option>
+              <option data-en="Light brown" data-hi="हल्का भूरा">Light brown</option>
+              <option data-en="Reddish" data-hi="लालिमा लिए">Reddish</option>
+              <option data-en="Pale / grey" data-hi="हल्का / धूसर">Pale / grey</option>
+            </select>
+          </div>
+          <div><label data-en="Soil moisture" data-hi="मिट्टी की नमी">Soil moisture</label>
+            <select id="moisture">
+              <option data-en="Not specified" data-hi="नहीं बताया">Not specified</option>
+              <option data-en="Dry" data-hi="सूखी">Dry</option>
+              <option data-en="Slightly moist" data-hi="थोड़ी नम">Slightly moist</option>
+              <option data-en="Wet" data-hi="गीली">Wet</option>
+              <option data-en="Waterlogged" data-hi="पानी भरा हुआ">Waterlogged</option>
+            </select>
+          </div>
+          <div><label data-en="Soil texture" data-hi="मिट्टी की बनावट">Soil texture</label>
+            <select id="texture">
+              <option data-en="Not sure" data-hi="पता नहीं">Not sure</option>
+              <option data-en="Sandy" data-hi="रेतीली">Sandy</option>
+              <option data-en="Loamy" data-hi="दोमट">Loamy</option>
+              <option data-en="Clayey" data-hi="चिकनी मिट्टी">Clayey</option>
+            </select>
+          </div>
+          <div><label data-en="Main concern" data-hi="मुख्य समस्या">Main concern</label>
+            <select id="concern">
+              <option data-en="Not specified" data-hi="नहीं बताया">Not specified</option>
+              <option data-en="Poor crop growth" data-hi="फसल की कम बढ़त">Poor crop growth</option>
+              <option data-en="Hard soil" data-hi="कठोर मिट्टी">Hard soil</option>
+              <option data-en="Water drains quickly" data-hi="पानी जल्दी निकल जाता है">Water drains quickly</option>
+              <option data-en="Standing water" data-hi="पानी जमा रहता है">Standing water</option>
+              <option data-en="Low fertility suspected" data-hi="कम उर्वरता का शक">Low fertility suspected</option>
+            </select>
+          </div>
+        </div>
+        <label data-en="Additional observations" data-hi="अन्य जानकारी">Additional observations</label>
+        <textarea id="soilNotes" rows="3"
+          data-en-placeholder="Past crop, irrigation, previous soil test..."
+          data-hi-placeholder="पिछली फसल, सिंचाई, मिट्टी की पिछली जाँच..."></textarea>
+        <button class="btn" type="submit" data-en="Create Soil Report →" data-hi="मिट्टी की रिपोर्ट बनाएं →">Create Soil Report →</button>
+      </form>
+      <div id="soilResult" class="card hidden"></div>
+    </section>
+
+    <!-- WEATHER -->
+    <section id="weather" class="page hidden">
+      <div class="intro">
+        <span class="tag" data-en="FIELD WEATHER" data-hi="खेत का मौसम">FIELD WEATHER</span>
+        <h1 data-en="Weather for Your Farm" data-hi="आपके खेत का मौसम">Weather for Your Farm</h1>
+        <p data-en="Enter your town or district for current weather and a short forecast."
+           data-hi="वर्तमान मौसम और पूर्वानुमान के लिए शहर या ज़िले का नाम डालें।">
+          Enter your town or district for current weather and a short forecast.
+        </p>
+      </div>
+      <form id="weatherForm" class="card weather-form">
+        <div class="grow">
+          <label data-en="Town / District" data-hi="शहर / ज़िला">Town / District</label>
+          <input id="weatherPlace" required placeholder="Lucknow">
+        </div>
+        <button class="btn" type="submit" data-en="Check Weather" data-hi="मौसम देखें">Check Weather</button>
+      </form>
+      <div id="weatherResult"></div>
+    </section>
+
+    <!-- REPORTS -->
+    <section id="reports" class="page hidden">
+      <div class="intro">
+        <span class="tag" data-en="YOUR HISTORY" data-hi="आपका रिकॉर्ड">YOUR HISTORY</span>
+        <h1 data-en="My Farm Reports" data-hi="मेरी खेत रिपोर्ट">My Farm Reports</h1>
+        <p data-en="Reports saved in this browser." data-hi="इस ब्राउज़र में सेव की गई रिपोर्ट।">Reports saved in this browser.</p>
+      </div>
+      <div class="card">
+        <div class="report-head">
+          <h2 data-en="Saved Reports" data-hi="सेव की गई रिपोर्ट">Saved Reports</h2>
+          <button id="clearReports" class="secondary" data-en="Clear History" data-hi="इतिहास साफ करें">Clear History</button>
+        </div>
+        <div id="allReports"></div>
+      </div>
+    </section>
+
+    <footer data-en="KisanCare • Verify serious crop problems with a qualified agricultural expert."
+            data-hi="किसानकेयर • गंभीर फसल समस्याओं की पुष्टि कृषि विशेषज्ञ से ज़रूर करें।">
+      KisanCare • Verify serious crop problems with a qualified agricultural expert.
+    </footer>
+  </main>
+</div>
+
+<div id="chatbot">
+  <h3>KisanCare AI 🌱</h3>
+  <div id="chatMessages" aria-live="polite">
+    <p>Namaste! Apni fasal ya mitti ki problem bataiye.</p>
+  </div>
+
+  <form id="chatForm">
+    <input
+      id="chatInput"
+      placeholder="Ask about your crop..."
+      required
+    />
+    <button type="submit">Send</button>
+  </form>
+
+
+</body>
+</html>
